@@ -1,0 +1,96 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{DD1CCDE2-5631-4878-B0B5-B6413B61CC97}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MultiplusCard.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SampleTEF\DemoSimplesTEF.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SamplePinpdv\DemoSimplesPinpdv.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\ProjectDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SampleTEF - DLL com Tela\SampleTEFDllComTela.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SamplePinpdvManual\DemoSimplesPinpdvManual.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MultiplusCard">
+        <MSBuild Projects="MultiplusCard.dproj"/>
+    </Target>
+    <Target Name="MultiplusCard:Clean">
+        <MSBuild Projects="MultiplusCard.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MultiplusCard:Make">
+        <MSBuild Projects="MultiplusCard.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DemoSimplesTEF">
+        <MSBuild Projects="SampleTEF\DemoSimplesTEF.dproj"/>
+    </Target>
+    <Target Name="DemoSimplesTEF:Clean">
+        <MSBuild Projects="SampleTEF\DemoSimplesTEF.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DemoSimplesTEF:Make">
+        <MSBuild Projects="SampleTEF\DemoSimplesTEF.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DemoSimplesPinpdv">
+        <MSBuild Projects="SamplePinpdv\DemoSimplesPinpdv.dproj"/>
+    </Target>
+    <Target Name="DemoSimplesPinpdv:Clean">
+        <MSBuild Projects="SamplePinpdv\DemoSimplesPinpdv.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DemoSimplesPinpdv:Make">
+        <MSBuild Projects="SamplePinpdv\DemoSimplesPinpdv.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjectDemo">
+        <MSBuild Projects="Demo\ProjectDemo.dproj"/>
+    </Target>
+    <Target Name="ProjectDemo:Clean">
+        <MSBuild Projects="Demo\ProjectDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjectDemo:Make">
+        <MSBuild Projects="Demo\ProjectDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SampleTEFDllComTela">
+        <MSBuild Projects="SampleTEF - DLL com Tela\SampleTEFDllComTela.dproj"/>
+    </Target>
+    <Target Name="SampleTEFDllComTela:Clean">
+        <MSBuild Projects="SampleTEF - DLL com Tela\SampleTEFDllComTela.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SampleTEFDllComTela:Make">
+        <MSBuild Projects="SampleTEF - DLL com Tela\SampleTEFDllComTela.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DemoSimplesPinpdvManual">
+        <MSBuild Projects="SamplePinpdvManual\DemoSimplesPinpdvManual.dproj"/>
+    </Target>
+    <Target Name="DemoSimplesPinpdvManual:Clean">
+        <MSBuild Projects="SamplePinpdvManual\DemoSimplesPinpdvManual.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DemoSimplesPinpdvManual:Make">
+        <MSBuild Projects="SamplePinpdvManual\DemoSimplesPinpdvManual.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MultiplusCard;DemoSimplesTEF;DemoSimplesPinpdv;ProjectDemo;SampleTEFDllComTela;DemoSimplesPinpdvManual"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MultiplusCard:Clean;DemoSimplesTEF:Clean;DemoSimplesPinpdv:Clean;ProjectDemo:Clean;SampleTEFDllComTela:Clean;DemoSimplesPinpdvManual:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MultiplusCard:Make;DemoSimplesTEF:Make;DemoSimplesPinpdv:Make;ProjectDemo:Make;SampleTEFDllComTela:Make;DemoSimplesPinpdvManual:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

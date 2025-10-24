@@ -1,0 +1,26 @@
+# Delphi
+*.dcu
+*.exe  
+*.map
+*.rsm
+*.drc
+*.local
+*.identcache
+*.tgs
+*.tgw
+*.dsk
+__history/
+__recovery/
+
+# Pastas de build
+Win32/
+Win64/
+Debug/
+Release/
+
+# Demo específico
+Demo/Win32/
+Demo/Win64/ 
+Demo/__history/
+Demo/*.exe
+Demo/*.dcu
