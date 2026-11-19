@@ -865,8 +865,12 @@ begin
     end;
     // =========================================================
 
-    // Formata valor monetário
-    Valor := FormatFloat('#,##0.00', StrToFloat(Valor));
+    // Formata valor monetário para a DLL: sem separador de milhar e com vírgula decimal
+    // (ex.: 1000,00), independente da configuração regional do Windows
+    var FormatoValorDll := TFormatSettings.Invariant;
+    FormatoValorDll.DecimalSeparator := ',';
+    FormatoValorDll.ThousandSeparator := '.';
+    Valor := FormatFloat('0.00', StrToFloat(Valor, FormatoValorDll), FormatoValorDll);
 
     // Chamando a função IniciaFuncaoMCInterativo para iniciar a operação
     retornoIniciaFuncaoMCInterativo := IniciaFuncaoMCInterativo(
